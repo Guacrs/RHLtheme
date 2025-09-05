@@ -1,296 +1,263 @@
 /**
- * @name Red Hat Linux Theme
+ * @name RHEL (Red Hat Enterprise Linux) - Main CSS
  * @author Guacrs
  * @version 1.0.0
  * @description A theme inspired by Red Hat Enterprise Linux and GNOME Adwaita.
  * @source https://github.com/Guacrs/RHLtheme
  * @website https://guacrs.github.io/RHLtheme
- * @authorId [Your Discord ID]
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Cantarell:wght@400;700&display=swap');
 
-/* ROOT VARIABLES */
+/* CUSTOMIZE COLORS IN HERE! */
 :root,
 .visual-refresh,
 .visual-refresh.theme-light {
-  --rgb-highlight: 204, 0, 0; /* Red Hat Red (#CC0000) for accents */
-  --rgb-background: 246, 245, 244; /* Adwaita Background (#F6F5F4) */
-  --rgb-text: 46, 52, 54; /* Adwaita Text (#2E3436) */
-  --rgb-close-button: 163, 0, 0; /* Close Button Red (#A30000) */
-  --rgb-online-color: 46, 204, 113; /* Online Status Green (#2ECC71) */
-  --rgb-afk-color: 241, 196, 15; /* Idle Status Yellow (#F1C40F) */
-  --rgb-dnd-color: 231, 76, 60; /* DND Status Red (#E74C3C) */
-  --rgb-streaming-color: 155, 89, 182; /* Streaming Status Purple (#9B59B6) */
+  --rgb-highlight: 204, 0, 0; /* Red Hat Red - The main highlight color */
+  --rgb-background: 246, 245, 244; /* Adwaita Background - The main background color */
+  --rgb-text: 46, 52, 54; /* Adwaita Text - The color (almost) all text should use */
+  --rgb-close-button: 163, 0, 0; /* Dark Red - The main "close this" or "deny" color */
+  --rgb-online-color: 46, 204, 113; /* Green - The color used in the "online" user status symbol */
+  --rgb-afk-color: 241, 196, 15; /* Yellow - The color used in the "idle" user status symbol */
+  --rgb-dnd-color: 231, 76, 60; /* Red - The color used in the "do not disturb" user status symbol */
+  --rgb-streaming-color: 155, 89, 182; /* Purple - The color used in the "streaming X" user status symbol */
 
-  --transition-time: .2s; /* Fast transitions for RHEL-like snappiness */
-  --background-image: unset; /* No image; use solid color */
-  --background-position: center;
-  --background-size: cover;
-  --background-blur: 0px; /* No blur without image */
-  --background-brightness: 100%;
+  --transition-time: .2s; /* How fast animations added by the theme happen. RHEL-like snappiness */
 
-  --show-original-title: 0; /* Hide Discord's default title */
-  --show-custom-title: 1; /* Show custom title */
-  --custom-title-text: "Red Hat Enterprise Linux"; /* Custom title text */
-  --custom-title-font-size: 16px;
-  --custom-title-font-weight: 700; /* Cantarell Bold */
-  --custom-title-margin-top: 10px;
-  --custom-title-margin-left: 10px;
-
-  --font-primary: 'Cantarell', 'Helvetica', 'Arial', sans-serif;
-  --font-display: 'Cantarell', 'Helvetica', sans-serif;
+  --background-image: unset; /* To add an image, replace unset with url(https://www.YOUR-URL-HERE.com) */
+  --background-position: center; /* Positions the background image */
+  --background-size: cover; /* Scales the background image */
+  --background-blur: 0px; /* Blurs the image which usually helps with readability of text infront of it */
+  --background-brightness: 100%; /* Changes the background images brightness */
+ 
+  --show-original-title: 0; /* Whether you want to show discords original title (0 means no, 1 means yes) */
+  --show-custom-title: 1; /* Whether you want to show a custom title (0 means no, 1 means yes) */
+  --custom-title-text: "Red Hat Enterprise Linux"; /* The custom text you want to display */
+  --custom-title-font-size: 16px; /* The size in pixels of the custom title text */
+  --custom-title-font-weight: bold; /* The font "weight" of the custom title text */
+  --custom-title-margin-top: 10px; /* The distance from the top of the window to the custom title text */
+  --custom-title-margin-left: 10px; /* The distance from the left side of the window to the custom title text */
 }
 
-/* CORE STYLING */
-body,
-* {
-  font-family: var(--font-primary);
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-  font-weight: 700;
-}
-
+/* OVERRIDE DISCORD'S CSS VARIABLES - This is the key! */
 .theme-light {
-  --background-primary: rgb(var(--rgb-background));
-  --background-secondary: #EDEDED; /* Slightly darker Adwaita gray */
-  --accent-color: rgb(var(--rgb-highlight));
-  --text-normal: rgb(var(--rgb-text));
-  --button-destructive: rgb(var(--rgb-close-button));
-  --status-green: rgb(var(--rgb-online-color));
-  --status-yellow: rgb(var(--rgb-afk-color));
-  --status-red: rgb(var(--rgb-dnd-color));
-  --status-purple: rgb(var(--rgb-streaming-color));
+  /* Background Colors */
+  --background-primary: rgb(var(--rgb-background)) !important;
+  --background-secondary: #EDEDED !important;
+  --background-secondary-alt: #E0E0E0 !important;
+  --background-tertiary: #FFFFFF !important;
+  --background-accent: rgb(var(--rgb-highlight)) !important;
+  --background-floating: #FFFFFF !important;
+  --background-mobile-primary: rgb(var(--rgb-background)) !important;
+  --background-mobile-secondary: #EDEDED !important;
+  --background-modifier-hover: #E0E0E0 !important;
+  --background-modifier-active: #D3D7CF !important;
+  --background-modifier-selected: rgb(var(--rgb-highlight)) !important;
+  --background-modifier-accent: #E0E0E0 !important;
+  
+  /* Text Colors */
+  --text-normal: rgb(var(--rgb-text)) !important;
+  --text-muted: #5C5C5C !important;
+  --text-link: #3584E4 !important;
+  --text-positive: rgb(var(--rgb-online-color)) !important;
+  --text-warning: rgb(var(--rgb-afk-color)) !important;
+  --text-danger: rgb(var(--rgb-dnd-color)) !important;
+  --text-brand: rgb(var(--rgb-highlight)) !important;
+  
+  /* Interactive Colors */
+  --interactive-normal: rgb(var(--rgb-text)) !important;
+  --interactive-hover: #3584E4 !important;
+  --interactive-active: rgb(var(--rgb-highlight)) !important;
+  --interactive-muted: #5C5C5C !important;
+  
+  /* Border Colors */
+  --border-subtle: #E0E0E0 !important;
+  --border-normal: #D3D7CF !important;
+  --border-strong: #BABABA !important;
+  
+  /* Control Colors */
+  --control-brand-foreground: #FFFFFF !important;
+  --control-brand-background: rgb(var(--rgb-highlight)) !important;
+  --control-brand-background-hover: #E81123 !important;
+  --control-brand-background-active: rgb(var(--rgb-close-button)) !important;
+  
+  /* Status Colors */
+  --status-positive: rgb(var(--rgb-online-color)) !important;
+  --status-warning: rgb(var(--rgb-afk-color)) !important;
+  --status-danger: rgb(var(--rgb-dnd-color)) !important;
+  --status-spotify: rgb(var(--rgb-streaming-color)) !important;
+  
+  /* Channel Colors */
+  --channel-icon: #5C5C5C !important;
+  --channel-text-area-placeholder: #5C5C5C !important;
+  --channeltextarea-background: #FFFFFF !important;
+  
+  /* Scrollbar Colors */
+  --scrollbar-thin-thumb: #D3D7CF !important;
+  --scrollbar-thin-track: transparent !important;
+  --scrollbar-auto-thumb: #D3D7CF !important;
+  --scrollbar-auto-track: transparent !important;
+  --scrollbar-auto-scrollbar-color-thumb: #D3D7CF !important;
+  --scrollbar-auto-scrollbar-color-track: transparent !important;
 }
 
-/* UI ELEMENTS */
-.container-1YxwTf, .sidebar-1-SQro {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adwaita shadow */
-  border: 1px solid #D3D7CF; /* Light gray border */
-  background: var(--background-primary);
+/* GLOBAL FONT OVERRIDE */
+* {
+  font-family: 'Cantarell', 'Helvetica Neue', 'Arial', sans-serif !important;
 }
 
-.message-2qnXI6 {
-  border-radius: 4px;
-  background: #FFFFFF;
-  padding: 8px;
-  margin: 4px 0;
-}
-
-/* BUTTONS */
-.button-1YfofB {
-  background-color: var(--accent-color);
-  color: #FFFFFF;
-  border-radius: 4px; /* Adwaita rounded corners */
-  transition: all var(--transition-time) ease;
-}
-
-.button-1YfofB:hover {
-  background-color: #E81123; /* Brighter red for hover */
-}
-
-/* STATUS INDICATORS */
-.status-1LyxT9 {
-  border-radius: 50%; /* Circular like Adwaita */
-}
-
-/* CHAT AND SIDEBAR */
-.chatContent-3KubbW {
-  background: var(--background-primary);
-}
-
-.channelTextArea-rNsIhG {
-  background: #FFFFFF;
-  border: 1px solid #D3D7CF;
-  border-radius: 4px;
-}
-
-/* USER PANEL */
-.panels-j1Uci_ {
-  background: var(--background-secondary);
-  border-top: 1px solid #D3D7CF;
-}
-
-/* ADDITIONAL STYLING FOR BETTER RHEL LOOK */
-
-/* Main application background */
+/* FORCE BACKGROUND CHANGES */
 .app-2CXKsg {
-  background: var(--background-primary);
+  background-color: rgb(var(--rgb-background)) !important;
 }
 
-/* Server list styling */
-.guilds-2JjMmN {
-  background: var(--background-secondary);
-  border-right: 1px solid #D3D7CF;
+/* FORCE TEXT COLOR CHANGES */
+[class*="messageContent"] {
+  color: rgb(var(--rgb-text)) !important;
 }
 
-/* Channel list */
-.container-2P5i1K {
-  background: var(--background-primary);
+/* FORCE BUTTON COLOR CHANGES */
+[class*="button"][style*="background-color"] {
+  background-color: rgb(var(--rgb-highlight)) !important;
+  color: #FFFFFF !important;
 }
 
-/* Message styling */
-.message-2qnXI6 .messageContent-2qWWp2 {
-  color: var(--text-normal);
+/* FORCE STATUS INDICATOR CHANGES */
+[class*="status"][aria-label*="Online"] {
+  background-color: rgb(var(--rgb-online-color)) !important;
 }
 
-/* Input area */
-.channelTextArea-rNsIhG .textArea-12jD-V {
-  background: #FFFFFF;
-  color: var(--text-normal);
-  border: 1px solid #D3D7CF;
-  border-radius: 4px;
+[class*="status"][aria-label*="Idle"] {
+  background-color: rgb(var(--rgb-afk-color)) !important;
 }
 
-/* User area */
-.panels-j1Uci_ .container-2P5i1K {
-  background: var(--background-secondary);
+[class*="status"][aria-label*="Do Not Disturb"] {
+  background-color: rgb(var(--rgb-dnd-color)) !important;
 }
 
-/* Scrollbars */
+[class*="status"][aria-label*="Streaming"] {
+  background-color: rgb(var(--rgb-streaming-color)) !important;
+}
+
+/* FORCE SCROLLBAR CHANGES */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 8px !important;
+  height: 8px !important;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background-secondary);
+  background: transparent !important;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #BABABA;
-  border-radius: 4px;
+  background: #D3D7CF !important;
+  border-radius: 4px !important;
+  border: 2px solid transparent !important;
+  background-clip: content-box !important;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #A0A0A0;
+  background: #BABABA !important;
+  background-clip: content-box !important;
 }
 
-/* Custom title bar */
-.titleBar-AC4pGV {
-  background: var(--accent-color);
-  color: #FFFFFF;
-  font-family: var(--font-display);
-  font-weight: 700;
+/* FORCE TITLE BAR CHANGES */
+[class*="titleBar"] {
+  background-color: rgb(var(--rgb-highlight)) !important;
+  color: #FFFFFF !important;
+  font-family: 'Cantarell', 'Helvetica Neue', 'Arial', sans-serif !important;
+  font-weight: bold !important;
 }
 
-/* Status indicators */
-.status-1LyxT9[aria-label*="Online"] {
-  background-color: var(--status-green);
+/* FORCE INPUT AREA CHANGES */
+[class*="textArea"] {
+  background-color: #FFFFFF !important;
+  border: 1px solid #D3D7CF !important;
+  border-radius: 4px !important;
+  color: rgb(var(--rgb-text)) !important;
+  font-family: 'Cantarell', 'Helvetica Neue', 'Arial', sans-serif !important;
 }
 
-.status-1LyxT9[aria-label*="Idle"] {
-  background-color: var(--status-yellow);
+/* FORCE MODAL CHANGES */
+[class*="modal"] {
+  background-color: #FFFFFF !important;
+  border: 1px solid #D3D7CF !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
 }
 
-.status-1LyxT9[aria-label*="Do Not Disturb"] {
-  background-color: var(--status-red);
+/* FORCE CONTEXT MENU CHANGES */
+[class*="contextMenu"] {
+  background-color: #FFFFFF !important;
+  border: 1px solid #D3D7CF !important;
+  border-radius: 6px !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
 }
 
-.status-1LyxT9[aria-label*="Streaming"] {
-  background-color: var(--status-purple);
+/* FORCE TOOLTIP CHANGES */
+[class*="tooltip"] {
+  background-color: rgb(var(--rgb-text)) !important;
+  color: rgb(var(--rgb-background)) !important;
+  border-radius: 4px !important;
+  font-family: 'Cantarell', 'Helvetica Neue', 'Arial', sans-serif !important;
 }
 
-/* Button hover effects */
-.button-1YfofB:active {
-  transform: scale(0.95);
+/* FORCE EMOJI PICKER CHANGES */
+[class*="emojiPicker"] {
+  background-color: #FFFFFF !important;
+  border: 1px solid #D3D7CF !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
 }
 
-/* Icon styling */
-.icon-3D60ES {
-  border-radius: 4px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+/* FORCE SEARCH RESULTS CHANGES */
+[class*="searchResults"] {
+  background-color: #FFFFFF !important;
+  border: 1px solid #D3D7CF !important;
+  border-radius: 6px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
 }
 
-/* Modal dialogs */
-.modal-3Crloo {
-  background: var(--background-primary);
-  border: 1px solid #D3D7CF;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+/* FORCE CODE BLOCK CHANGES */
+[class*="codeBlock"] {
+  background-color: #EDEDED !important;
+  border: 1px solid #D3D7CF !important;
+  border-radius: 4px !important;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace !important;
 }
 
-/* Settings panels */
-.sidebarRegion-1VBisG {
-  background: var(--background-secondary);
-  border-right: 1px solid #D3D7CF;
+/* FORCE INLINE CODE CHANGES */
+[class*="inlineCode"] {
+  background-color: #EDEDED !important;
+  border: 1px solid #D3D7CF !important;
+  border-radius: 3px !important;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace !important;
 }
 
-/* Channel headers */
-.channelHeader-DFRX8q {
-  background: var(--background-primary);
-  border-bottom: 1px solid #D3D7CF;
+/* FORCE LINK CHANGES */
+[class*="anchor"] {
+  color: #3584E4 !important;
+  text-decoration: none !important;
 }
 
-/* Member list */
-.members-3WRCEx {
-  background: var(--background-primary);
-  border-left: 1px solid #D3D7CF;
+[class*="anchor"]:hover {
+  text-decoration: underline !important;
 }
 
-/* Voice channel styling */
-.voiceUser-2kBH4s {
-  background: var(--background-secondary);
-  border-radius: 4px;
-  margin: 2px;
+/* FORCE MENTION CHANGES */
+[class*="mention"] {
+  background-color: rgba(204, 0, 0, 0.1) !important;
+  color: rgb(var(--rgb-highlight)) !important;
+  border-radius: 3px !important;
+  padding: 1px 2px !important;
+  font-weight: 500 !important;
 }
 
-/* Tooltips */
-.tooltip-2QfLtc {
-  background: var(--text-normal);
-  color: var(--background-primary);
-  border-radius: 4px;
-  font-family: var(--font-primary);
-}
-
-/* Context menus */
-.contextMenu-1D5lpS {
-  background: var(--background-primary);
-  border: 1px solid #D3D7CF;
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
-/* Search results */
-.searchResultsWrap-5RVOkx {
-  background: var(--background-primary);
-  border: 1px solid #D3D7CF;
-  border-radius: 4px;
-}
-
-/* Emoji picker */
-.emojiPicker-6YCk8a {
-  background: var(--background-primary);
-  border: 1px solid #D3D7CF;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-/* File upload area */
-.uploadModal-2ifh8j {
-  background: var(--background-primary);
-  border: 2px dashed #D3D7CF;
-  border-radius: 8px;
-}
-
-/* Loading states */
-.loading-1sU4qy {
-  color: var(--accent-color);
-}
-
-/* Error states */
-.error-1Yj8s- {
-  color: var(--status-red);
-}
-
-/* Success states */
-.success-1Yj8s- {
-  color: var(--status-green);
-}
-
-/* Warning states */
-.warning-1Yj8s- {
-  color: var(--status-yellow);
+/* FORCE ROLE MENTION CHANGES */
+[class*="roleMention"] {
+  background-color: rgba(53, 132, 228, 0.1) !important;
+  color: #3584E4 !important;
+  border-radius: 3px !important;
+  padding: 1px 2px !important;
+  font-weight: 500 !important;
 }
