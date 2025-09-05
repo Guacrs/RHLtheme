@@ -1,0 +1,12 @@
+/**
+ * @name RHEL (Red Hat Enterprise Linux)
+ * @author Guacrs
+ * @version 1.0.0
+ * @description A theme inspired by Red Hat Enterprise Linux and GNOME Adwaita.
+ * @source https://github.com/Guacrs/RHLtheme
+ * @website https://guacrs.github.io/RHLtheme
+ * @authorId [Your Discord ID]
+*/
+
+@import url('https://guacrs.github.io/RHLtheme/main.css');
+/* ^ This is the main Import ^ DO NOT TOUCH. Without this, the theme won't load!!! */
