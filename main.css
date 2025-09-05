@@ -1,0 +1,296 @@
+/**
+ * @name Red Hat Linux Theme
+ * @author Guacrs
+ * @version 1.0.0
+ * @description A theme inspired by Red Hat Enterprise Linux and GNOME Adwaita.
+ * @source https://github.com/Guacrs/RHLtheme
+ * @website https://guacrs.github.io/RHLtheme
+ * @authorId [Your Discord ID]
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Cantarell:wght@400;700&display=swap');
+
+/* ROOT VARIABLES */
+:root,
+.visual-refresh,
+.visual-refresh.theme-light {
+  --rgb-highlight: 204, 0, 0; /* Red Hat Red (#CC0000) for accents */
+  --rgb-background: 246, 245, 244; /* Adwaita Background (#F6F5F4) */
+  --rgb-text: 46, 52, 54; /* Adwaita Text (#2E3436) */
+  --rgb-close-button: 163, 0, 0; /* Close Button Red (#A30000) */
+  --rgb-online-color: 46, 204, 113; /* Online Status Green (#2ECC71) */
+  --rgb-afk-color: 241, 196, 15; /* Idle Status Yellow (#F1C40F) */
+  --rgb-dnd-color: 231, 76, 60; /* DND Status Red (#E74C3C) */
+  --rgb-streaming-color: 155, 89, 182; /* Streaming Status Purple (#9B59B6) */
+
+  --transition-time: .2s; /* Fast transitions for RHEL-like snappiness */
+  --background-image: unset; /* No image; use solid color */
+  --background-position: center;
+  --background-size: cover;
+  --background-blur: 0px; /* No blur without image */
+  --background-brightness: 100%;
+
+  --show-original-title: 0; /* Hide Discord's default title */
+  --show-custom-title: 1; /* Show custom title */
+  --custom-title-text: "Red Hat Enterprise Linux"; /* Custom title text */
+  --custom-title-font-size: 16px;
+  --custom-title-font-weight: 700; /* Cantarell Bold */
+  --custom-title-margin-top: 10px;
+  --custom-title-margin-left: 10px;
+
+  --font-primary: 'Cantarell', 'Helvetica', 'Arial', sans-serif;
+  --font-display: 'Cantarell', 'Helvetica', sans-serif;
+}
+
+/* CORE STYLING */
+body,
+* {
+  font-family: var(--font-primary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.theme-light {
+  --background-primary: rgb(var(--rgb-background));
+  --background-secondary: #EDEDED; /* Slightly darker Adwaita gray */
+  --accent-color: rgb(var(--rgb-highlight));
+  --text-normal: rgb(var(--rgb-text));
+  --button-destructive: rgb(var(--rgb-close-button));
+  --status-green: rgb(var(--rgb-online-color));
+  --status-yellow: rgb(var(--rgb-afk-color));
+  --status-red: rgb(var(--rgb-dnd-color));
+  --status-purple: rgb(var(--rgb-streaming-color));
+}
+
+/* UI ELEMENTS */
+.container-1YxwTf, .sidebar-1-SQro {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adwaita shadow */
+  border: 1px solid #D3D7CF; /* Light gray border */
+  background: var(--background-primary);
+}
+
+.message-2qnXI6 {
+  border-radius: 4px;
+  background: #FFFFFF;
+  padding: 8px;
+  margin: 4px 0;
+}
+
+/* BUTTONS */
+.button-1YfofB {
+  background-color: var(--accent-color);
+  color: #FFFFFF;
+  border-radius: 4px; /* Adwaita rounded corners */
+  transition: all var(--transition-time) ease;
+}
+
+.button-1YfofB:hover {
+  background-color: #E81123; /* Brighter red for hover */
+}
+
+/* STATUS INDICATORS */
+.status-1LyxT9 {
+  border-radius: 50%; /* Circular like Adwaita */
+}
+
+/* CHAT AND SIDEBAR */
+.chatContent-3KubbW {
+  background: var(--background-primary);
+}
+
+.channelTextArea-rNsIhG {
+  background: #FFFFFF;
+  border: 1px solid #D3D7CF;
+  border-radius: 4px;
+}
+
+/* USER PANEL */
+.panels-j1Uci_ {
+  background: var(--background-secondary);
+  border-top: 1px solid #D3D7CF;
+}
+
+/* ADDITIONAL STYLING FOR BETTER RHEL LOOK */
+
+/* Main application background */
+.app-2CXKsg {
+  background: var(--background-primary);
+}
+
+/* Server list styling */
+.guilds-2JjMmN {
+  background: var(--background-secondary);
+  border-right: 1px solid #D3D7CF;
+}
+
+/* Channel list */
+.container-2P5i1K {
+  background: var(--background-primary);
+}
+
+/* Message styling */
+.message-2qnXI6 .messageContent-2qWWp2 {
+  color: var(--text-normal);
+}
+
+/* Input area */
+.channelTextArea-rNsIhG .textArea-12jD-V {
+  background: #FFFFFF;
+  color: var(--text-normal);
+  border: 1px solid #D3D7CF;
+  border-radius: 4px;
+}
+
+/* User area */
+.panels-j1Uci_ .container-2P5i1K {
+  background: var(--background-secondary);
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #BABABA;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A0A0A0;
+}
+
+/* Custom title bar */
+.titleBar-AC4pGV {
+  background: var(--accent-color);
+  color: #FFFFFF;
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+/* Status indicators */
+.status-1LyxT9[aria-label*="Online"] {
+  background-color: var(--status-green);
+}
+
+.status-1LyxT9[aria-label*="Idle"] {
+  background-color: var(--status-yellow);
+}
+
+.status-1LyxT9[aria-label*="Do Not Disturb"] {
+  background-color: var(--status-red);
+}
+
+.status-1LyxT9[aria-label*="Streaming"] {
+  background-color: var(--status-purple);
+}
+
+/* Button hover effects */
+.button-1YfofB:active {
+  transform: scale(0.95);
+}
+
+/* Icon styling */
+.icon-3D60ES {
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal dialogs */
+.modal-3Crloo {
+  background: var(--background-primary);
+  border: 1px solid #D3D7CF;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Settings panels */
+.sidebarRegion-1VBisG {
+  background: var(--background-secondary);
+  border-right: 1px solid #D3D7CF;
+}
+
+/* Channel headers */
+.channelHeader-DFRX8q {
+  background: var(--background-primary);
+  border-bottom: 1px solid #D3D7CF;
+}
+
+/* Member list */
+.members-3WRCEx {
+  background: var(--background-primary);
+  border-left: 1px solid #D3D7CF;
+}
+
+/* Voice channel styling */
+.voiceUser-2kBH4s {
+  background: var(--background-secondary);
+  border-radius: 4px;
+  margin: 2px;
+}
+
+/* Tooltips */
+.tooltip-2QfLtc {
+  background: var(--text-normal);
+  color: var(--background-primary);
+  border-radius: 4px;
+  font-family: var(--font-primary);
+}
+
+/* Context menus */
+.contextMenu-1D5lpS {
+  background: var(--background-primary);
+  border: 1px solid #D3D7CF;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Search results */
+.searchResultsWrap-5RVOkx {
+  background: var(--background-primary);
+  border: 1px solid #D3D7CF;
+  border-radius: 4px;
+}
+
+/* Emoji picker */
+.emojiPicker-6YCk8a {
+  background: var(--background-primary);
+  border: 1px solid #D3D7CF;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* File upload area */
+.uploadModal-2ifh8j {
+  background: var(--background-primary);
+  border: 2px dashed #D3D7CF;
+  border-radius: 8px;
+}
+
+/* Loading states */
+.loading-1sU4qy {
+  color: var(--accent-color);
+}
+
+/* Error states */
+.error-1Yj8s- {
+  color: var(--status-red);
+}
+
+/* Success states */
+.success-1Yj8s- {
+  color: var(--status-green);
+}
+
+/* Warning states */
+.warning-1Yj8s- {
+  color: var(--status-yellow);
+}
